@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--service和dao对象创建-->
+    <bean id="userService" class="com.woqiyounai.ioc.xml.demo3.service.UserService">
+        <!--注入 userDao 对象-->
+        <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+    <bean id="userDaoImpl" class="com.woqiyounai.ioc.xml.demo3.dao.UserDaoImpl"></bean>
+
+</beans>

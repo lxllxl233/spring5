@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="myBean" class="com.woqiyounai.ioc.xml.demo5.MyBean"></bean>
+    <!--演示 bean 的生命周期
+    无参构造器
+    setter 方法
+    初始化方法
+    bean可以使用
+    销毁方法
+    -->
+    <bean id="orders" class="com.woqiyounai.ioc.xml.demo5.Orders" init-method="init" destroy-method="destroy">
+        <!--通过无参数构造先创建后 setter-->
+        <property name="oname" value="手机"></property>
+    </bean>
+    <!--配置后置处理器-->
+    <bean id="myBeanPost" class="com.woqiyounai.ioc.xml.demo5.MyBeanPost"></bean>
+</beans>

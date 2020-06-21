@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--内部bean-->
+    <bean id="emp" class="com.woqiyounai.ioc.xml.demo3.bean.Emp">
+        <property name="name" value="lucy"></property>
+        <property name="gender" value="女"></property>
+        <property name="dept">
+            <bean id="dept" class="com.woqiyounai.ioc.xml.demo3.bean.Dept">
+                <property name="name" value="信息部">
+
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

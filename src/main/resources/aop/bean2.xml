@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+    <!--开启注解扫描-->
+<!--    <context:component-scan base-package="com.woqiyounai.aop.annotation"></context:component-scan>-->
+    <!--开启 @AspectJ 生成代理对象-->
+<!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+
+    <!--创建对象-->
+    <bean id="book" class="com.woqiyounai.aop.xml.Book"></bean>
+    <bean id="bookProxy" class="com.woqiyounai.aop.xml.BookProxy"></bean>
+    <!--配置 AOP 增强-->
+    <aop:config>
+        <!--配置切入点-->
+        <aop:pointcut id="buy" expression="execution(* com.woqiyounai.aop.xml.Book.buy(..))"/>
+        <!--配置切面 把通知应用到切面-->
+        <aop:aspect ref="bookProxy">
+            <!--配置增强作用在具体的方法上-->
+            <aop:before method="before" pointcut-ref="buy"></aop:before>
+        </aop:aspect>
+    </aop:config>
+</beans>
